@@ -1,0 +1,25 @@
+<!-- recipes/templates/recipes/home.html -->
+{% extends 'recipes/index.html' %}
+
+{% block title %}Welcome - My Recipe Website{% endblock %}
+
+{% block content %}
+<div class="card bg-pink-50"> {# This class will now correctly apply a light pink background #}
+    <h2 class="text-3xl font-bold mb-6 text-center text-pink-700">Welcome to My Recipe Haven!</h2>
+
+    <p class="text-lg text-pink-800 mb-8 leading-relaxed">
+        Detailed page of all the recipes I've tried and absolutely adore. 
+    </p>
+
+    <h3 class="text-2xl font-semibold mb-4 text-pink-600">Explore Recipes by Category:</h3>
+    <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <a href="{% url 'recipes:home' %}" class="btn">Breakfast</a>
+        <a href="{% url 'recipes:lunch' %}" class="btn">Lunch</a>
+        <a href="{% url 'recipes:home' %}" class="btn">Dinner</a>
+    </div>
+
+    <div class="mt-8 text-center">
+        <a href="{% url 'recipes:home' %}" class="btn">View All Recipes</a>
+    </div>
+</div>
+{% endblock %}

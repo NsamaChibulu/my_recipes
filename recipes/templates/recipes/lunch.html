@@ -1,0 +1,24 @@
+<!-- recipes/templates/recipes/home.html -->
+{% extends 'recipes/index.html' %}
+
+{% block title %}Lunch Recipes{% endblock %}
+
+{% block content %}
+<div class="card bg-pink-50"> {# This class will now correctly apply a light pink background #}
+    <h2 class="text-3xl font-bold mb-6 text-center text-pink-700">Welcome to My Recipe Haven!</h2>
+
+    <p class="text-lg text-pink-800 mb-8 leading-relaxed">
+        find below all meal ideas for lunch. Each recipe comes with an ingredients list   </p>
+
+    <h3 class="text-2xl font-semibold mb-4 text-pink-600">Explore Recipes by Category:</h3>
+    <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <a href="{% url 'recipes:lunch' %}" class="btn"> High Protein Stirfry </a>
+        <a href="{% url 'recipes:lunch' %}" class="btn"> Chicken and avocado wraps </a>
+        <a href="{% url 'recipes:SoyChicken' %}" class="btn"> Soy Chicken</a>
+    </div>
+
+    <div class="mt-8 text-center">
+        <a href="{% url 'recipes:home' %}" class="btn">View All Recipes</a>
+    </div>
+</div>
+{% endblock %}
