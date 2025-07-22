@@ -26,7 +26,11 @@ SECRET_KEY = 'django-insecure-@ru-)(71en*rks*d7kl%$6xg)-!f+vl#+z7uw-sh8zb2c$b^fi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS for Render deployment
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',') if os.environ.get('ALLOWED_HOSTS') else []
+# Add your Render app's domain here, e.g., ['my-recipes-test-5.onrender.com']
+# It's best to get this from an environment variable on Render.
+# In Render dashboard, add an env var: ALLOWED_HOSTS = my-recipes-test-5.onrender.com
 
 
 # Application definition
@@ -127,3 +131,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Add this line!
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# Render-specific settings for Gunicorn
+# Get the PORT from Render's environment variable
+PORT = os.environ.get('PORT')
