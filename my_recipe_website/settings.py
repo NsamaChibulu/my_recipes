@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-@ru-)(71en*rks*d7kl%$6xg)-!f+vl#+z7uw-sh8zb2c$b^fi
 DEBUG = True
 
 # ALLOWED_HOSTS for Render deployment
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',') if os.environ.get('ALLOWED_HOSTS') else []
+ALLOWED_HOSTS = [os.environ.get('RENDER_EXTERNAL_HOSTNAME', '')]
+if os.environ.get('RENDER_EXTERNAL_HOSTNAME'):
+    ALLOWED_HOSTS.append('*.onrender.com')
 # Add your Render app's domain here, e.g., ['my-recipes-test-5.onrender.com']
 # It's best to get this from an environment variable on Render.
 # In Render dashboard, add an env var: ALLOWED_HOSTS = my-recipes-test-5.onrender.com
