@@ -1,7 +1,0 @@
-django>=3.0.0
-os
-pathlib
-sys
-psycopg2-binary>=2.8.0
-whitenoise>=5.0.0
-gunicorn>=20.0.0
